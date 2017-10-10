@@ -8,3 +8,7 @@ puts "Exercise 5"
 puts "----------"
 
 # Your code goes here ...
+
+@total_rev = Stores.select(:annual_revenue).SUM
+
+puts @total_rev
