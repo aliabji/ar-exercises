@@ -9,6 +9,14 @@ puts "----------"
 
 # Your code goes here ...
 
-@total_rev = Stores.select(:annual_revenue).SUM
+@total_rev = Store.sum(:annual_revenue)
 
-puts @total_rev
+puts "Company's annual revenue is #{@total_rev}"
+
+@avg_rev = Store.average(:annual_revenue)
+
+puts "Company's average annual revenue is #{@avg_rev}"
+
+@high_rev = Store.where("annual_revenue < ?", 1000000).count
+
+puts "#{@high_rev} stores make more than $1 million annualy."
